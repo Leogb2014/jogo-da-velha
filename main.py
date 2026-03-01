@@ -6,4 +6,31 @@ def interface():
 
 tabuleiro = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
 
-interface()
+parar = False
+rodada = "X"
+jogadas = 0
+
+while parar == False:
+
+    if jogadas == 9:
+        interface()
+        print("Empate")
+        parar = True
+
+    interface()
+
+    linha = int(input("Digite a linha: "))
+    coluna = int(input("Digite a coluna: "))
+
+    if rodada == "X":
+        tabuleiro[linha][coluna] = "X"
+        jogadas += 1
+        rodada = "O"
+    elif rodada == "O":
+        tabuleiro[linha][coluna] = "O"
+        jogadas += 1
+        rodada = "X"
+
+
+
+print("Fim de Jogo!")
