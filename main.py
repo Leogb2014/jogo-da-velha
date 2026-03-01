@@ -4,6 +4,46 @@ def interface():
     print("1 [{}] [{}] [{}]".format(tabuleiro[1][0],tabuleiro[1][1],tabuleiro[1][2]))
     print("2 [{}] [{}] [{}]".format(tabuleiro[2][0],tabuleiro[2][1],tabuleiro[2][2]))
 
+def validarVitoria(rodada):
+    global parar
+    if (tabuleiro[0][0] == rodada and tabuleiro[0][1] == rodada and tabuleiro[0][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+    if (tabuleiro[1][0] == rodada and tabuleiro[1][1] == rodada and tabuleiro[1][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+    if (tabuleiro[2][0] == rodada and tabuleiro[2][1] == rodada and tabuleiro[2][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
+    if (tabuleiro[0][0] == rodada and tabuleiro[1][0] == rodada and tabuleiro[2][0] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
+    if (tabuleiro[0][1] == rodada and tabuleiro[1][1] == rodada and tabuleiro[2][1] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
+    if (tabuleiro[0][2] == rodada and tabuleiro[1][2] == rodada and tabuleiro[2][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
+    if (tabuleiro[0][0] == rodada and  tabuleiro[1][1] == rodada and tabuleiro[2][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
+    if (tabuleiro[2][0] == rodada and  tabuleiro[1][1] == rodada and tabuleiro[0][2] == rodada):
+        interface()
+        print("O {} venceu!".format(rodada))
+        parar = True
+
 tabuleiro = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
 
 parar = False
@@ -24,10 +64,12 @@ while parar == False:
 
     if rodada == "X":
         tabuleiro[linha][coluna] = "X"
+        validarVitoria(rodada)
         jogadas += 1
         rodada = "O"
     elif rodada == "O":
         tabuleiro[linha][coluna] = "O"
+        validarVitoria(rodada)
         jogadas += 1
         rodada = "X"
 
